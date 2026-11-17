@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrackFast4DGS Player</title>
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.2592af74d02ef0e9.css">
+</head>
+<body>
+<canvas id="view" tabindex="0" aria-label="Interactive 4D Gaussian scene"></canvas>
+
+<div class="bar top">
+  <div class="group views" role="group" aria-label="View">
+    <button id="view-render" class="seg" aria-pressed="true"></button>
+    <button id="view-nodes" class="seg" aria-pressed="false"></button>
+    <button id="view-points" class="seg" aria-pressed="false"></button>
+    <button id="view-tracks" class="seg" aria-pressed="false"></button>
+  </div>
+  <div class="group toggles">
+    <label class="toggle"><input type="checkbox" id="toggle-trails"><span></span></label>
+    <label class="toggle"><input type="checkbox" id="toggle-cameras"><span></span></label>
+    <label class="toggle"><input type="checkbox" id="toggle-gate"><span></span></label>
+  </div>
+  <div class="group actions">
+    <button id="info-button" class="icon" aria-label="Scene info">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+    </button>
+    <button id="heldout" class="icon" aria-label="Held-out view">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l3-3h4l2 2h6a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/><circle cx="12" cy="13" r="3.2"/></svg>
+    </button>
+    <button id="fullscreen" class="icon" aria-label="Full screen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+    </button>
+  </div>
+</div>
+
+<div id="info" class="panel" hidden>
+  <div id="info-title" class="panel-title"></div>
+  <table id="info-table"></table>
+  <p id="help" class="help"></p>
+</div>
+
+<div id="legend" class="panel legend" hidden></div>
+<div id="stats" class="stats"></div>
+
+<div class="bar bottom">
+  <button id="play" class="icon play" aria-label="Pause" data-playing="true">
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+  </button>
+  <button id="prev" class="icon small" aria-label="Previous frame"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button id="next" class="icon small" aria-label="Next frame"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  <input id="timeline" type="range" min="0" max="299" step="1" value="0" aria-label="Frame">
+  <span id="frame-label" class="frame-label"></span>
+  <select id="speed" aria-label="Speed">
+    <option value="0.25">0.25×</option>
+    <option value="0.5">0.5×</option>
+    <option value="1" selected>1×</option>
+    <option value="2">2×</option>
+  </select>
+</div>
+
+<div id="loading" class="loading" hidden>
+  <div class="loading-box">
+    <div id="loading-text" class="loading-text">…</div>
+    <div class="progress"><div id="loading-bar"></div></div>
+    <div id="loading-detail" class="loading-detail"></div>
+    <button id="retry" class="retry" hidden></button>
+  </div>
+</div>
+<div id="pending" class="pending" hidden>
+  <div id="pending-text"></div>
+  <div class="progress"><div id="pending-bar"></div></div>
+</div>
+
+<script type="module" src="app.93c3d6c5d0dfed87.js"></script>
+</body>
+</html>

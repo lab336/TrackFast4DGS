@@ -1,0 +1,803 @@
+{
+ "scenes": {
+  "n3dv-coffee_martini": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 112964042,
+    "first_bytes": 6844308,
+    "sparse": 634202,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 18,
+    "frames": 300,
+    "fps": 30.0,
+    "gaussians": 314139,
+    "static": 149919,
+    "dynamic": 144673,
+    "free": 19547,
+    "nodes": 14502,
+    "trajectories": 34049,
+    "samples": 2979658,
+    "transient_static": 18726
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 12228238,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "n3dv-cook_spinach": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 11382044,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "n3dv-cut_roasted_beef": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 193524159,
+    "first_bytes": 15052090,
+    "sparse": 553154,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 20,
+    "frames": 300,
+    "fps": 30.0,
+    "gaussians": 350079,
+    "static": 127330,
+    "dynamic": 174878,
+    "free": 47871,
+    "nodes": 54146,
+    "trajectories": 102017,
+    "samples": 6608018,
+    "transient_static": 32285
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 11328309,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "n3dv-flame_salmon": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 133078571,
+    "first_bytes": 8272952,
+    "sparse": 543227,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 19,
+    "frames": 300,
+    "fps": 30.0,
+    "gaussians": 383872,
+    "static": 198281,
+    "dynamic": 134237,
+    "free": 51354,
+    "nodes": 16567,
+    "trajectories": 67921,
+    "samples": 3212855,
+    "transient_static": 34998
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 12579644,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "n3dv-flame_steak": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 10349102,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "n3dv-sear_steak": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 10169315,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  },
+  "technicolor-birthday": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 677830525,
+    "first_bytes": 58711168,
+    "sparse": 409808,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 16,
+    "frames": 300,
+    "fps": 30.0,
+    "gaussians": 1205795,
+    "static": 620571,
+    "dynamic": 492478,
+    "free": 92746,
+    "nodes": 270403,
+    "trajectories": 363149,
+    "samples": 27846170,
+    "transient_static": 467184
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 33076475,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "technicolor-fabien": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 396152202,
+    "first_bytes": 37004524,
+    "sparse": 477513,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 16,
+    "frames": 200,
+    "fps": 30.0,
+    "gaussians": 549142,
+    "static": 102236,
+    "dynamic": 413631,
+    "free": 33275,
+    "nodes": 215710,
+    "trajectories": 248985,
+    "samples": 17859350,
+    "transient_static": 41885
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 9897326,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "technicolor-painter": {
+   "fps": 30.0,
+   "4d": {
+    "bytes": 351754130,
+    "first_bytes": 28688698,
+    "sparse": 593893,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 16,
+    "frames": 300,
+    "fps": 30.0,
+    "gaussians": 684096,
+    "static": 416912,
+    "dynamic": 181898,
+    "free": 85286,
+    "nodes": 129362,
+    "trajectories": 214648,
+    "samples": 11833983,
+    "transient_static": 136469
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 16908974,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "technicolor-theater": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 19200856,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "technicolor-train": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 23655022,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "technicolor-tristan": {
+   "fps": 30.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 12510713,
+   "poster": true,
+   "video_size": [
+    1280,
+    680
+   ]
+  },
+  "enerf-actor1_4": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 267780029,
+    "first_bytes": 20758473,
+    "sparse": 650849,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 18,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 525867,
+    "static": 334127,
+    "dynamic": 183955,
+    "free": 7785,
+    "nodes": 99537,
+    "trajectories": 107322,
+    "samples": 9576211,
+    "transient_static": 62273
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 25051040,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "enerf-actor2_3": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 273335101,
+    "first_bytes": 21604074,
+    "sparse": 662933,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 18,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 512180,
+    "static": 317049,
+    "dynamic": 184662,
+    "free": 10469,
+    "nodes": 101048,
+    "trajectories": 111517,
+    "samples": 10065409,
+    "transient_static": 74224
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 25323920,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "enerf-actor5_6": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 320433943,
+    "first_bytes": 26887478,
+    "sparse": 669866,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 18,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 528823,
+    "static": 332517,
+    "dynamic": 179023,
+    "free": 17283,
+    "nodes": 136002,
+    "trajectories": 153285,
+    "samples": 12304373,
+    "transient_static": 97118
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 25439635,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "selfcap-bar": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 171723860,
+    "first_bytes": 12908900,
+    "sparse": 506034,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 18,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 300848,
+    "static": 110080,
+    "dynamic": 188281,
+    "free": 2487,
+    "nodes": 48584,
+    "trajectories": 51071,
+    "samples": 6658434,
+    "transient_static": 25345
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 12163679,
+   "poster": true,
+   "video_size": [
+    718,
+    1280
+   ]
+  },
+  "selfcap-bike1": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 205614270,
+    "first_bytes": 14759667,
+    "sparse": 652698,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 22,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 431098,
+    "static": 190086,
+    "dynamic": 186188,
+    "free": 54824,
+    "nodes": 55396,
+    "trajectories": 110220,
+    "samples": 6362287,
+    "transient_static": 24655
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 14691888,
+   "poster": true,
+   "video_size": [
+    960,
+    960
+   ]
+  },
+  "selfcap-bike2": {
+   "fps": 60.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 17314453,
+   "poster": true,
+   "video_size": [
+    960,
+    960
+   ]
+  },
+  "selfcap-corgi1": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 334385947,
+    "first_bytes": 28636130,
+    "sparse": 672650,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 24,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 380253,
+    "static": 200966,
+    "dynamic": 178303,
+    "free": 984,
+    "nodes": 135893,
+    "trajectories": 136877,
+    "samples": 13584417,
+    "transient_static": 22307
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 16360946,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "selfcap-corgi2": {
+   "fps": 60.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 16454373,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "selfcap-hair1": {
+   "fps": 60.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 15487407,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "selfcap-hair2": {
+   "fps": 60.0,
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 15195379,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "inhouse-fandance": {
+   "fps": 120.0,
+   "4d": {
+    "bytes": 259894971,
+    "first_bytes": 16836796,
+    "sparse": 544840,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 36,
+    "frames": 300,
+    "fps": 120.0,
+    "gaussians": 728407,
+    "static": 524818,
+    "dynamic": 174022,
+    "free": 29567,
+    "nodes": 85249,
+    "trajectories": 114816,
+    "samples": 6420819,
+    "transient_static": 110684
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 16671962,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "inhouse-danceduet": {
+   "fps": 50.0,
+   "4d": {
+    "bytes": 351313857,
+    "first_bytes": 27049267,
+    "sparse": 497653,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 100,
+    "frames": 200,
+    "fps": 50.0,
+    "gaussians": 636763,
+    "static": 462607,
+    "dynamic": 166540,
+    "free": 7616,
+    "nodes": 134560,
+    "trajectories": 142176,
+    "samples": 12214632,
+    "transient_static": 205612
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 7920672,
+   "poster": true,
+   "video_size": [
+    1280,
+    720
+   ]
+  },
+  "inhouse-purpledress": {
+   "fps": 60.0,
+   "4d": {
+    "bytes": 159778288,
+    "first_bytes": 12257190,
+    "sparse": 332120,
+    "lossless": true,
+    "sh_degree": 3,
+    "cameras": 100,
+    "frames": 300,
+    "fps": 60.0,
+    "gaussians": 291172,
+    "static": 102299,
+    "dynamic": 188658,
+    "free": 215,
+    "nodes": 59906,
+    "trajectories": 60121,
+    "samples": 5143474,
+    "transient_static": 5570
+   },
+   "videos": [
+    "4dgaussians",
+    "ex4dgs",
+    "gt",
+    "localdygs",
+    "morgs",
+    "multi4d",
+    "ours",
+    "stg",
+    "swift4d",
+    "trackersplat"
+   ],
+   "video_bytes": 10515873,
+   "poster": true,
+   "video_size": [
+    1280,
+    960
+   ]
+  }
+ },
+ "totals": {
+  "4d": 4217965335,
+  "videos": 401877245
+ }
+}

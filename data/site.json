@@ -1,0 +1,36 @@
+{
+  "_comment": "Edit this file to fill in authors, affiliations and links, or to move the media to another host. 'xxx' marks placeholders. An empty link shows its button as 'soon'.",
+  "title": "TrackFast4DGS",
+  "subtitle": "Fast, High-Quality 4D Gaussian Splatting from Multi-View Sparse Point Trajectories",
+  "venue": "ICCV 2027 · To be submitted",
+  "authors": [
+    { "name": "xxx", "url": "", "affiliations": [1] },
+    { "name": "xxx", "url": "", "affiliations": [1] },
+    { "name": "xxx", "url": "", "affiliations": [2] },
+    { "name": "xxx", "url": "", "affiliations": [1, 2] }
+  ],
+  "affiliations": ["xxx University", "xxx Institute"],
+  "authorNote": "",
+  "links": {
+    "paper": "",
+    "arxiv": "",
+    "supplementary": "",
+    "video": "",
+    "code": ""
+  },
+  "media": "https://huggingface.co/datasets/LiangFCSU/TrackFast4DGS/resolve/main/",
+  "heroScenes": ["inhouse-fandance", "inhouse-danceduet", "inhouse-purpledress"],
+  "gallery": [
+    "n3dv-coffee_martini", "n3dv-cut_roasted_beef", "n3dv-flame_salmon",
+    "technicolor-fabien", "technicolor-birthday", "technicolor-painter",
+    "enerf-actor1_4", "enerf-actor2_3", "enerf-actor5_6",
+    "selfcap-bar", "selfcap-bike1", "selfcap-corgi1",
+    "inhouse-fandance", "inhouse-danceduet", "inhouse-purpledress"
+  ],
+  "sceneNotes": {
+    "inhouse-fandance": "36 cameras · a fan dance with falling petals",
+    "inhouse-danceduet": "100 cameras · two dancers, an umbrella, petals and stage haze",
+    "inhouse-purpledress": "100 cameras · a dancer in a flowing dress"
+  },
+  "bibtex": "@inproceedings{trackfast4dgs2027,\n  title     = {TrackFast4DGS: Fast, High-Quality 4D Gaussian Splatting from Multi-View Sparse Point Trajectories},\n  author    = {xxx and xxx and xxx and xxx},\n  booktitle = {xxx},\n  year      = {2027}\n}"
+}

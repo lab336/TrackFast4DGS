@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrackFast4DGS: Fast, High-Quality 4D Gaussian Splatting from Multi-View Sparse Point Trajectories</title>
+<meta name="description" content="TrackFast4DGS measures motion before it optimizes appearance: sparse 3D trajectories tracked jointly across a camera rig drive dynamic Gaussians. Interactive, losslessly streamed 4D Gaussian scenes and comparisons with eight baselines on 25 scenes.">
+<meta property="og:title" content="TrackFast4DGS">
+<meta property="og:description" content="Fast, high-quality 4D Gaussian Splatting from multi-view sparse point trajectories. Interactive 4DGS viewer and comparisons on 25 scenes.">
+<meta property="og:image" content="assets/img/figures/teaser.jpg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.7be957dc6e7a1206.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">TrackFast<span>4DGS</span></a>
+    <div class="nav-links">
+      <a href="#abstract">Abstract</a>
+      <a href="#method">Method</a>
+      <a href="#scenes">4D Scenes</a>
+      <a href="#compare">Comparison</a>
+      <a href="#results">Results</a>
+      <a href="#citation">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead" id="top">
+  <svg class="traces" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <defs>
+      <linearGradient id="trace-a" x1="0" x2="1"><stop offset="0" stop-color="#3b5bdb" stop-opacity="0"/><stop offset=".55" stop-color="#2a9d8f"/><stop offset="1" stop-color="#eb6834"/></linearGradient>
+      <linearGradient id="trace-b" x1="0" x2="1"><stop offset="0" stop-color="#7048e8" stop-opacity="0"/><stop offset=".6" stop-color="#e64dbf"/><stop offset="1" stop-color="#eb6834"/></linearGradient>
+      <linearGradient id="trace-c" x1="1" x2="0"><stop offset="0" stop-color="#3b5bdb" stop-opacity="0"/><stop offset=".55" stop-color="#2a9d8f"/><stop offset="1" stop-color="#eb6834"/></linearGradient>
+      <linearGradient id="trace-d" x1="1" x2="0"><stop offset="0" stop-color="#7048e8" stop-opacity="0"/><stop offset=".6" stop-color="#e64dbf"/><stop offset="1" stop-color="#eb6834"/></linearGradient>
+    </defs>
+    <g fill="none" stroke-width="1.6" stroke-linecap="round">
+      <path stroke="url(#trace-a)" d="M-20 300 C 90 250, 170 340, 260 300 S 360 230, 400 250"/>
+      <path stroke="url(#trace-a)" d="M-20 440 C 80 410, 170 480, 260 440 S 340 380, 380 395"/>
+      <path stroke="url(#trace-b)" d="M-20 150 C 70 100, 150 190, 230 150 S 300 100, 340 115"/>
+      <path stroke="url(#trace-c)" d="M1460 140 C 1370 190, 1290 100, 1200 140 S 1110 200, 1070 180"/>
+      <path stroke="url(#trace-d)" d="M1460 330 C 1370 280, 1290 370, 1200 330 S 1100 270, 1050 290"/>
+      <path stroke="url(#trace-c)" d="M1460 470 C 1380 440, 1300 510, 1210 475 S 1120 420, 1080 430"/>
+    </g>
+    <g class="trace-heads"><circle cx="400" cy="250" r="4"/><circle cx="380" cy="395" r="3.5"/><circle cx="340" cy="115" r="3.5"/><circle cx="1070" cy="180" r="4"/><circle cx="1050" cy="290" r="3.5"/><circle cx="1080" cy="430" r="3"/></g>
+  </svg>
+  <div class="wrap masthead-inner">
+    <span class="venue" id="venue">ICCV 2027 · To be submitted</span>
+    <h1><span class="t-main">TrackFast</span><span class="t-accent">4DGS</span></h1>
+    <p class="subtitle" id="subtitle">Fast, High-Quality 4D Gaussian Splatting from Multi-View Sparse Point Trajectories</p>
+    <p class="authors" id="authors"></p>
+    <p class="affiliations" id="affiliations"></p>
+    <div class="buttons" id="links">
+      <a class="button" data-link="paper" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+        Paper</a>
+      <a class="button" data-link="arxiv" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l14 16M19 4L5 20"/></svg>
+        arXiv</a>
+      <a class="button" data-link="supplementary" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Supplement</a>
+      <a class="button" data-link="video" aria-disabled="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg>
+        Video</a>
+      <a class="button" data-link="code" aria-disabled="true" title="The code will be released after acceptance">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+        Code <span class="soon">after acceptance</span></a>
+      <a class="button accent" href="#scenes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+        4D Viewer</a>
+    </div>
+  </div>
+</header>
+
+<section class="teaser" aria-label="Interactive 4D Gaussian scene">
+  <div class="wrap wide">
+    <div class="viewer-card">
+      <div class="viewer-bar">
+        <div class="scene-switch" id="hero-scenes" role="group" aria-label="In-house scene"></div>
+        <span class="viewer-meta" id="hero-meta"></span>
+      </div>
+      <div class="player-frame" id="hero-player">
+        <img class="poster" id="hero-poster" src="assets/img/thumbs/inhouse-fandance.jpg" alt="">
+        <div class="start" id="hero-start-box">
+          <div>
+            <button type="button" id="hero-start">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              Play the 4D scene</button>
+            <small id="hero-size">Rendered live in your browser</small>
+          </div>
+        </div>
+      </div>
+      <div class="viewer-tools">
+        <div class="feature-chips" id="hero-chips" role="group" aria-label="Player views">
+          <button class="chip" data-preset="render" aria-pressed="true">Render</button>
+          <button class="chip" data-preset="trails" aria-pressed="false">Trajectories</button>
+          <button class="chip" data-preset="nodes" aria-pressed="false">Motion nodes</button>
+          <button class="chip" data-preset="tracks" aria-pressed="false">Sparse tracks</button>
+          <button class="chip" data-preset="points" aria-pressed="false">Point cloud</button>
+          <button class="chip" data-preset="nogate" aria-pressed="false">Lifetime gate off</button>
+          <button class="chip" data-preset="rig" aria-pressed="false">Camera rig</button>
+        </div>
+        <span class="hint">Drag to orbit · right-drag to pan · scroll to zoom · click the scene, then W/A/S/D/Q/E to fly</span>
+      </div>
+    </div>
+    <p class="teaser-caption" id="hero-caption"><strong>TrackFast4DGS</strong> models of our in-house captures, rendered live in your browser from the held-out camera and played at their capture frame rate. Each opens as a coarse version of the whole clip and sharpens as it streams, until it is exactly the trained model. The views show the structure behind the render: the measured trajectories that carry the motion, the motion nodes that drive the dynamic Gaussians, and the new trajectories added where tracking failed.</p>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="wrap">
+    <p class="tldr">Measure motion first, optimize appearance second. Sparse 3D trajectories, tracked jointly across a calibrated rig, <b>carry the motion</b> of dynamic Gaussians, so training no longer searches for it through photometric error, and fast-moving regions stay sharp.</p>
+    <div class="kpis" id="kpis">
+      <div class="kpi"><div class="label">Mean PSNR, 25 scenes</div><div class="value">29.88 <small>dB</small></div><div class="delta"><b>+1.43 dB</b> over the best of 8 baselines</div></div>
+      <div class="kpi"><div class="label">Fast-moving regions</div><div class="value">23.63 <small>dB</small></div><div class="delta"><b>+3.48 dB</b>, leading on 23 of 25 scenes</div></div>
+      <div class="kpi"><div class="label">Median training time</div><div class="value">14.9 <small>min</small></div><div class="delta"><b>2.6–9.2×</b> faster on the same GPU</div></div>
+      <div class="kpi"><div class="label">Worst scene</div><div class="value">24.15 <small>dB</small></div><div class="delta">baselines: <b>10.70–23.49 dB</b>, one configuration for all</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="abstract">
+  <div class="narrow">
+    <header class="section-head"><h2>Abstract</h2></header>
+    <div class="abstract">
+      <p>Multi-view dynamic scene reconstruction faces a high cost of motion optimization and blurred fast-moving regions where correspondence is missing. We propose TrackFast4DGS, a 4D Gaussian reconstruction framework driven by sparse 3D trajectories. It uses trajectory priors to lower the cost of motion optimization and improves fast-moving regions by completing trajectories under the guidance of rendering error. First, multi-view matching and joint 3D tracking build sparse point trajectories, and occlusion relations and multi-view consistency remove unreliable samples, giving reliable geometry and motion priors. Trajectory nodes then drive the local rigid motion of dynamic Gaussians, which keeps optimization efficient, and a small bounded learnable correction guards against tracking errors. For trajectories lost to fast motion, occlusion and blur, multi-view 3D detection in moving regions of high error and linking across frames build new trajectories, which initialize Gaussians that move along independent paths. Adaptive spatio-temporal densification and pruning based on geometric consistency and rendering contribution further complete scene detail and keep the model compact. On 25 scenes, TrackFast4DGS reaches a mean PSNR of 29.88 dB, 1.43 dB above the best of eight baselines and 3.48 dB above them in fast-moving regions, with a median training time of 14.9 minutes, 2.6 to 9.2 times faster on the same GPU.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="method">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Method</h2>
+      <p class="lede">Most dynamic Gaussian methods infer geometry, appearance and motion jointly from photometric error. When a structure moves tens of pixels between frames, that gradient gives the search little to follow. A calibrated rig can instead <em>measure</em> where a surface point is at each instant. TrackFast4DGS has three parts, each visible in the viewer above.</p>
+    </header>
+    <figure class="figure plain">
+      <img class="zoomable" src="assets/img/figures/framework.jpg" alt="Overview of TrackFast4DGS on the 100-camera scene DanceDuet: sparse trajectory generation, trajectory-driven Gaussians, Gaussian addition and deletion" loading="lazy" width="1800" height="626">
+      <figcaption>Overview on the 100-camera scene DanceDuet. Sparse trajectories are generated from multi-view video; dynamic Gaussians follow them and all Gaussians are rendered and supervised by training images; the rendering residual guides the addition and deletion of Gaussians. Novel views are evaluated at a held-out camera.</figcaption>
+    </figure>
+
+    <div class="steps">
+      <article class="step stack">
+        <div class="step-text">
+          <div class="step-head"><span class="num">C1</span><div><span class="tag">Sparse trajectory generation</span><h3>Joint multi-view 3D tracking, verified by visibility</h3></div></div>
+          <ul>
+            <li><b>Seeding.</b> Shi–Tomasi corners in cells without a live track; depth from an inverse-depth sweep that averages the two best ZNCC scores across source views, which limits the influence of occlusion.</li>
+            <li><b>Joint tracking.</b> A 3D Lucas–Kanade step solves one 3×3 Gauss–Newton system on the shared position using all valid views, with Huber pixels, Cauchy view weights and a constant-velocity prior.</li>
+          </ul>
+          <ul>
+            <li><b>Visibility-aware verification.</b> Only a view that <em>sees through</em> a sample contradicts it; occlusion does not. Thin structures survive, and chance agreement at wrong depths does not.</li>
+            <li><b>Fragment linking.</b> Tracks broken by fast motion are rejoined by forward and backward motion prediction with mutual best matches.</li>
+          </ul>
+          <div class="try">
+            <button type="button" data-try="tracks"><svg viewBox="0 0 24 24"><path d="M4 18c4-8 8 2 16-10"/></svg>See the sparse tracks</button>
+            <button type="button" data-try="trails"><svg viewBox="0 0 24 24"><path d="M4 18c4-8 8 2 16-10"/></svg>Trajectories over the render</button>
+          </div>
+        </div>
+        <figure>
+          <img class="zoomable" src="assets/img/figures/generation.jpg" alt="Sparse trajectory generation on FanDance: seeding, joint tracking, verification and fragment linking" loading="lazy">
+          <figcaption>(a) Seeding with ZNCC curves; (b) joint tracking in four cameras; (c) verification with confirming (green) and contradicting (red) rays; (d) fragment linking in the held-out view.</figcaption>
+        </figure>
+      </article>
+
+      <article class="step flip">
+        <div class="step-text">
+          <div class="step-head"><span class="num">C2</span><div><span class="tag">Trajectory-driven Gaussian primitives</span><h3>Nodes move rigidly; Gaussians only learn a bounded correction</h3></div></div>
+          <p>Each dynamic Gaussian inherits the local rigid motion of a trajectory node, so the motion unknowns scale with the nodes rather than with the Gaussians:</p>
+          <div class="equation">
+            <math display="block"><msub><mi>μ</mi><mi>i</mi></msub><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msub><mi>p</mi><mi>o</mi></msub><mo>(</mo><mi>t</mi><mo>)</mo><mo>+</mo><msub><mi>R</mi><mi>o</mi></msub><mo>(</mo><mi>t</mi><mo>)</mo><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>p</mi><mi>o</mi></msub><mo>(</mo><msub><mi>f</mi><mi>o</mi></msub><mo>)</mo><mo>)</mo></math>
+            <span class="where">node pose = measured trajectory + a cubic B-spline correction bounded by tanh; on PurpleDress the median peak correction is 1.2% of its bound</span>
+          </div>
+          <p>A learned lifetime gate keeps each Gaussian within the span its node was observed, so stale, extrapolated poses do not render as ghosts.</p>
+          <div class="try">
+            <button type="button" data-try="nodes"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="2.5"/><circle cx="16" cy="7" r="2.5"/><circle cx="12" cy="16" r="2.5"/></svg>Colour Gaussians by node</button>
+            <button type="button" data-try="nogate"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></svg>Turn the lifetime gate off</button>
+          </div>
+        </div>
+        <figure>
+          <img class="zoomable" src="assets/img/figures/primitives.jpg" alt="Trajectory-driven Gaussians on PurpleDress: node colouring, node paths, correction statistics, lifetime gate" loading="lazy">
+          <figcaption>(a) Dynamic Gaussians coloured by their node; (b) node paths during a fast arm swing; (c) peak corrections per node, relative to the bound; (d) the lifetime gate off and on.</figcaption>
+        </figure>
+      </article>
+
+      <article class="step">
+        <div class="step-text">
+          <div class="step-head"><span class="num">C3</span><div><span class="tag">Gaussian addition and deletion</span><h3>Rendering error finds the motion tracking missed</h3></div></div>
+          <ul>
+            <li><b>Error-guided new trajectories.</b> Pixels that both change over time and render badly are detected in 3D by multi-view plane sweeping and linked across frames; each segment initializes a free Gaussian that moves along its own path.</li>
+            <li><b>Spatio-temporal densification.</b> FastGS error votes plus screen-space gradients; a one-way ANOVA adds time-local children where appearance changes without motion (flames, shadows).</li>
+            <li><b>Free-space and contribution pruning.</b> A densified child is deleted when enough views see the surface behind it, or when it contributes almost nothing to any render (9.9% of a model trained without deletion).</li>
+          </ul>
+          <div class="try">
+            <button type="button" data-try="free"><svg viewBox="0 0 24 24"><path d="M4 18c4-8 8 2 16-10"/></svg>Show new (free) trajectories</button>
+            <button type="button" data-try="points"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="1.5"/><circle cx="12" cy="9" r="1.5"/><circle cx="18" cy="6" r="1.5"/><circle cx="8" cy="16" r="1.5"/><circle cx="16" cy="17" r="1.5"/></svg>Gaussian centres as a point cloud</button>
+          </div>
+        </div>
+        <figure>
+          <img class="zoomable" src="assets/img/figures/add_delete.jpg" alt="Gaussian addition and deletion on FanDance" loading="lazy">
+          <figcaption>(a) Residual with new trajectories disabled, the paths of free Gaussians, and the full model; (b) Gaussians flagged by the free-space and low-contribution tests.</figcaption>
+        </figure>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block tinted" id="scenes">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Interactive 4D Scenes</h2>
+      <p class="lede">Trained models from all five datasets, streamed with their structure intact (static Gaussians, trajectory nodes with their per-frame poses, free trajectories, lifetime gates and view-dependent colour) and stored losslessly: every value is the one our method produced. Each scene opens as a coarse version of the whole clip and sharpens while the rest streams in. Open one to orbit or fly (W/A/S/D/Q/E), scrub time and switch between the render, the motion nodes, the point cloud and the sparse tracks.</p>
+    </header>
+    <div class="toolbar">
+      <div class="tabs" id="gallery-tabs" role="group" aria-label="Dataset"></div>
+      <span class="muted toolbar-note" id="gallery-note"></span>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="block" id="compare">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Comparison with Eight Baselines</h2>
+      <p class="lede">All methods share the training cameras, the held-out camera and the frames of each scene, run on the same GPU with their native schedules, and are scored on the same 8-bit renders. Drag the divider, scrub frames, scroll to zoom, press Space to pause or resume. The curve below follows the video.</p>
+    </header>
+    <div class="filter-row" id="filter-row">
+      <label class="field">Scene <select id="scene-select"></select></label>
+      <label class="field">Compared baseline <select id="baseline-select"></select></label>
+      <div class="legend-row" aria-hidden="true">
+        <span class="key ours"><i></i>Ours</span>
+        <span class="key compare"><i></i><span id="baseline-name">STG</span></span>
+        <span class="key"><i></i>other baselines</span>
+      </div>
+    </div>
+
+    <div class="card compare-box">
+      <div class="video-compare" id="video-compare">
+        <div class="layer zoom" id="zoom-left"><video id="video-left" muted playsinline preload="auto"></video></div>
+        <div class="right-clip" id="right-clip"><div class="layer zoom" id="zoom-right"><video id="video-right" muted playsinline preload="auto"></video></div></div>
+        <div class="handle" id="compare-handle"></div>
+        <span class="label left" id="label-left"></span>
+        <span class="label right" id="label-right"></span>
+        <div class="loading" id="video-loading" role="status" hidden></div>
+      </div>
+      <div class="video-controls">
+        <button type="button" class="play" id="video-play" aria-label="Play" aria-keyshortcuts="Space" title="Play / pause (Space)"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+        <button type="button" id="video-prev" aria-label="Previous frame"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="video-next" aria-label="Next frame"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        <input type="range" id="video-seek" min="0" max="299" value="0" step="1" aria-label="Frame">
+        <span class="frame" id="video-frame">frame 1 / 300</span>
+        <label class="field">Left <select id="left-select"></select></label>
+        <label class="field">Right <select id="right-select"></select></label>
+        <button type="button" id="zoom-reset" aria-label="Reset zoom" title="Reset zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5M8 11h6"/></svg></button>
+      </div>
+      <div class="scene-stats" id="scene-stats"></div>
+    </div>
+
+    <div class="card chart-card" style="margin-top:18px">
+      <header>
+        <div>
+          <h3 id="frame-chart-title">Per-frame quality</h3>
+          <p class="sub">Every held-out frame of the scene. The vertical line marks the frame shown above.</p>
+        </div>
+        <div class="controls"><label class="field">Measure <select id="frame-metric"></select></label></div>
+      </header>
+      <div class="chart" id="frame-chart"></div>
+      <div class="chart-foot"><span class="table-note" id="frame-chart-note"></span><button class="table-toggle" type="button" data-table="frame-chart">Show as table</button></div>
+      <div class="table-scroll" id="frame-chart-table" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tinted" id="results">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Quantitative Results</h2>
+      <p class="lede">Whole-image PSNR is dominated by static background, so the comparison goes further: region masks from the ground truth, temporal residual and flicker, the spread and the worst cases of frame PSNR, and training cost. The compared baseline chosen above stays blue in every chart.</p>
+    </header>
+
+    <div class="card chart-card wide" style="margin-top:26px">
+      <header>
+        <div>
+          <h3>Scorecard over 25 scenes</h3>
+          <p class="sub">Each row is one measure, averaged over all scenes (training time: median). Cells are shaded by rank; the dot marks the best.</p>
+        </div>
+      </header>
+      <div class="table-scroll" id="scorecard"></div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="card chart-card">
+        <header>
+          <div><h3>Quality against training time</h3><p class="sub">Mean PSNR over 25 scenes vs. median training minutes on the same GPU; bubble area = mean number of Gaussians.</p></div>
+        </header>
+        <div class="chart" id="bubble-chart"></div>
+        <div class="chart-foot"><span></span><button class="table-toggle" type="button" data-table="bubble-chart">Show as table</button></div>
+        <div class="table-scroll" id="bubble-chart-table" hidden></div>
+      </div>
+      <div class="card chart-card">
+        <header>
+          <div><h3>The margin grows with motion</h3><p class="sub">PSNR by region, masks from the ground truth only: static, changing, moving and fast pixels.</p></div>
+          <div class="controls"><label class="field">Data <select id="region-dataset"></select></label></div>
+        </header>
+        <div class="chart" id="region-chart"></div>
+        <div class="chart-foot"><span></span><button class="table-toggle" type="button" data-table="region-chart">Show as table</button></div>
+        <div class="table-scroll" id="region-chart-table" hidden></div>
+      </div>
+      <div class="card chart-card">
+        <header>
+          <div><h3>Distribution of frame PSNR</h3><p class="sub">All 7,196 held-out frames of the 25 scenes. A curve further right is better.</p></div>
+        </header>
+        <div class="chart" id="cdf-chart"></div>
+        <div class="chart-foot"><span></span><button class="table-toggle" type="button" data-table="cdf-chart">Show as table</button></div>
+        <div class="table-scroll" id="cdf-chart-table" hidden></div>
+      </div>
+      <div class="card chart-card">
+        <header>
+          <div><h3>Per scene</h3><p class="sub">One measure on one scene, every method ranked.</p></div>
+          <div class="controls">
+            <label class="field">Measure <select id="bars-metric"></select></label>
+          </div>
+        </header>
+        <div class="chart" id="bars-chart"></div>
+        <div class="chart-foot"><span class="table-note" id="bars-note"></span><button class="table-toggle" type="button" data-table="bars-chart">Show as table</button></div>
+        <div class="table-scroll" id="bars-chart-table" hidden></div>
+      </div>
+      <div class="card chart-card wide">
+        <header>
+          <div><h3>All scenes, all methods</h3><p class="sub">The table behind the charts. Click a column to sort; bold with a dot marks the best on each scene.</p></div>
+          <div class="controls"><label class="field">Measure <select id="table-metric"></select></label></div>
+        </header>
+        <div class="table-scroll" id="scene-table"></div>
+      </div>
+      <div class="card chart-card wide">
+        <header>
+          <div><h3>Per dataset (paper Table 1)</h3><p class="sub">PSNR / SSIM / LPIPS averaged over the scenes of each dataset, held-out camera, all frames. Train: median minutes per scene.</p></div>
+        </header>
+        <div class="table-scroll" id="dataset-table"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="citation">
+  <div class="narrow">
+    <header class="section-head"><h2>BibTeX</h2></header>
+    <div class="bibtex"><pre id="bibtex"></pre><button type="button" id="copy-bibtex">Copy</button></div>
+  </div>
+</section>
+
+<div class="tooltip" id="tooltip" hidden></div>
+<dialog class="viewer" id="viewer" aria-label="4D scene viewer">
+  <div class="viewer-body" id="viewer-body"></div>
+  <div class="viewer-head"><span class="viewer-title" id="viewer-title"></span>
+    <button class="close" type="button" id="viewer-close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+</dialog>
+<dialog class="lightbox" id="lightbox"><img alt="" id="lightbox-img"></dialog>
+
+<script type="module" src="assets/app.cced62b2a3d67e1b.js"></script>
+</body>
+</html>
