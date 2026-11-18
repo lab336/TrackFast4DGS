@@ -18,7 +18,7 @@
     "video": "",
     "code": ""
   },
-  "media": "https://huggingface.co/datasets/LiangFCSU/TrackFast4DGS/resolve/main/",
+  "media": "https://trackfast4dgs-media.lab336-media.workers.dev/",
   "heroScenes": ["inhouse-fandance", "inhouse-danceduet", "inhouse-purpledress"],
   "gallery": [
     "n3dv-coffee_martini", "n3dv-cut_roasted_beef", "n3dv-flame_salmon",
